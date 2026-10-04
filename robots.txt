@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://makis0189.github.io/manlisa-portfolio/sitemap.xml
