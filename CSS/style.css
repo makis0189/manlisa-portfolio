@@ -339,11 +339,36 @@ textarea:focus-visible {
     color: var(--accent);
 }
 
-.code-window-bar {
+.portfolio-link {
     min-height: 49px;
+    min-height: 27px;
+    padding: 0 9px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--muted);
     padding: 0 20px;
     display: flex;
     align-items: center;
+    transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.portfolio-link:hover {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+    color: var(--accent);
+}
+
+.portfolio-link svg {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
     gap: 7px;
     border-bottom: 1px solid var(--line);
 }
