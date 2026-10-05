@@ -810,6 +810,19 @@ textarea:focus-visible {
     font-size: 11px;
 }
 
+.footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.footer-socials svg {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+    fill: currentColor;
+}
+
 .toast {
     position: fixed;
     right: 22px;
