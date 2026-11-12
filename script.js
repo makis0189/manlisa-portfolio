@@ -33,6 +33,33 @@ const observer = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => observer.observe(item));
 
+// Report key link clicks to Google Analytics (gtag is defined in index.html <head>).
+const classifyLink = (link) => {
+  const href = link.getAttribute('href') || '';
+  if (link.hasAttribute('download') || href.endsWith('.pdf')) return 'cv_download';
+  if (href.includes('wa.me')) return 'whatsapp_click';
+  if (href.startsWith('mailto:')) return 'email_click';
+  if (href.startsWith('tel:')) return 'phone_click';
+  if (link.classList.contains('github-btn')) return 'project_github_click';
+  if (href.includes('github.com')) return 'github_profile_click';
+  if (href.includes('linkedin.com')) return 'linkedin_click';
+  if (href === '#contact' && link.classList.contains('btn')) return 'hire_me_click';
+  return null;
+};
+
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a');
+  if (!link || typeof gtag !== 'function') return;
+  const eventName = classifyLink(link);
+  if (!eventName) return;
+  const project = link.closest('.project-card')?.querySelector('h3')?.textContent.trim();
+  gtag('event', eventName, {
+    link_url: link.href,
+    link_location: link.closest('section, header, footer')?.id || link.closest('header, footer')?.tagName.toLowerCase() || '',
+    ...(project && { project_name: project })
+  });
+});
+
 const contactForm = document.querySelector('.contact-form');
 const toast = document.getElementById('toast');
 const toastMessage = document.getElementById('toast-message');
@@ -71,6 +98,7 @@ if (contactForm) {
         throw new Error(result.message || 'Could not send message.');
       }
 
+      if (typeof gtag === 'function') gtag('event', 'contact_form_submit');
       contactForm.reset();
       toastMessage.textContent = 'Your message was sent successfully.';
       toast.hidden = false;
