@@ -307,6 +307,30 @@ textarea:focus-visible {
     font-size: 11px;
 }
 
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 32px;
+    margin: 30px 0 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+}
+
+.hero-stats dt {
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.hero-stats dd {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
 .profile-card {
     overflow: hidden;
     border: 1px solid var(--line);
@@ -736,6 +760,22 @@ textarea:focus-visible {
 
 .contact-list a:hover {
     color: var(--accent);
+}
+
+.contact-list .whatsapp-btn {
+    justify-self: start;
+    margin-top: 6px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: var(--surface);
+    font-family: var(--mono);
+    font-size: 12px;
+    transition: border-color 160ms ease, color 160ms ease;
+}
+
+.contact-list .whatsapp-btn:hover {
+    border-color: var(--accent);
 }
 
 .contact-list span {
