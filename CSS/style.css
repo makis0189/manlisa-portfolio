@@ -348,10 +348,20 @@ textarea:focus-visible {
     flex: none;
     width: 88px;
     height: 88px;
+    overflow: hidden;
+    border: 2px solid var(--accent);
     border-radius: 50%;
     padding: 3px;
     background: var(--surface);
-    box-shadow: 0 0 0 2px var(--accent), var(--shadow);
+    box-shadow: var(--shadow);
+}
+
+.hero-avatar picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 /* manlisa-avatar.* is a pre-cropped, sharpened head-and-shoulders cut of manlisa.jpg. */
