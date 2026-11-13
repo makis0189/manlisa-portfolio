@@ -298,6 +298,36 @@ textarea:focus-visible {
     margin-top: 26px;
 }
 
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin: 22px 0 0;
+    padding: 7px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+}
+
+.availability-dot {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.5);
+    animation: availability-pulse 2.2s ease-out infinite;
+}
+
+@keyframes availability-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.5); }
+    70%, 100% { box-shadow: 0 0 0 7px rgba(63, 185, 80, 0); }
+}
+
 .social-row {
     display: flex;
     gap: 21px;
@@ -1078,6 +1108,12 @@ textarea:focus-visible {
 }
 
 @media (max-width: 440px) {
+    .availability {
+        padding: 6px 12px;
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+
     .container {
         width: calc(100% - 32px);
     }
